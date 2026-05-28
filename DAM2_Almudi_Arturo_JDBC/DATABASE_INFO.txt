@@ -1,0 +1,56 @@
+CREATE TABLE AGENCIAS(
+  id_Agencia NUMBER(4),
+  nombre VARCHAR2(40) NOT NULL,
+  pais VARCHAR2(40) NOT NULL,
+  fecha_Fundacion VARCHAR2(40) NOT NULL,
+  autor_Examen VARCHAR(150) NOT NULL,
+  CONSTRAINT PK_Agencias PRIMARY KEY (id_Agencia),
+);
+
+CREATE TABLE SATELITES(
+  id_Satelite NUMBER(4),
+  nombre VARCHAR2(40) NOT NULL,
+  orbita VARCHAR2(40) NOT NULL,
+  peso VARCHAR2(40) NOT NULL,
+  coste NUMBER(6,2) NOT NULL,
+  activo BOOLEAN DEFAULT TRUE,
+  fecha_Lanzamiento VARCHAR2(40) NOT NULL,
+  id_Agencia NUMBER(4),
+  autor_Examen VARCHAR(150) NOT NULL,
+  CONSTRAINT PK_Agencias PRIMARY KEY (id_Satelite),
+  CONSTRAINT FK_Id_Agencia FOREIGN KEY (id_Agencia) REFERENCES AGENCIAS,
+);
+
+
+CREATE TABLE DETALLE_SATELITE(
+  id_Detalle NUMBER(4) NOT NULL,
+  velocidad_Maxima NUMBER(6) NOT NULL,
+  vida_Util NUMBER(3) NOT NULL,
+  temperatura_Maxima NUMBER(4) NOT NULL,
+  id_Satelite NUMBER(4) NOT NULL,
+  autor_Examen VARCHAR(150) NOT NULL,
+  CONSTRAINT PK_Detalle PRIMARY KEY (id_Detalle),
+  CONSTRAINT FK_Id_Satelite FOREIGN KEY (id_Satelite) REFERENCES SATELITES,
+);
+
+INSERT INTO AGENCIAS (id_Agencia, nombre, pais, fecha_Fundacion, autor_Examen) VALUES
+('HOPE', 'España', '28/05/2020', 'Arturo'),
+('Amazon', 'España', '26/05/2020', 'Arturo'),
+('RuralVia', 'España', '24/05/2020', 'Arturo'),
+('Google', 'España', '20/05/2020', 'Arturo'),
+('San Valero', 'España', '28/05/2020', 'Arturo');
+
+INSERT INTO SATELITES (id_Satelite, nombre, orbita, peso, coste, activo, fecha_Lanzamiento, id_Agencia, autor_Examen) VALUES
+('HOPE', 'No se que poner', 300, 2000, TRUE, '28/05/2026', 1, 'Arturo'),
+('Amazon', 'No se que poner', 400, 3000, FALSE, '28/05/2026', 2, 'Arturo'),
+('RuralVia', 'No se que poner', 500, 4000, TRUE, '28/05/2026', 3, 'Arturo'),
+('Google', 'No se que poner', 200, 2000, TRUE, '28/05/2026', 4, 'Arturo'),
+('San Valero', 'No se que poner', 350, 2000, FALSE, '28/05/2026', 5, 'Arturo');
+
+INSERT INTO DETALLE_SATELITE (id_Detalle, velocidad_Maxima, vida_Util, temperatura_Maxima, id_Satelite, autor_Examen) VALUES
+(1000, 20, 200, 1, 'Arturo'),
+(500, 30, 200, 2, 'Arturo'),
+(5000, 10, 300, 3, 'Arturo'),
+2500, 20, 200, 4, 'Arturo'),
+(1000, 20, 200, 5, 'Arturo');
+
