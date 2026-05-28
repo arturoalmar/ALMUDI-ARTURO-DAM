@@ -1,10 +1,3 @@
-Todas las tablas deberán contener:
-
-AUTOR_EXAMEN VARCHAR(150) NOT NULL
-
-NOTA: Pides que pongamos datos Unicos y no veo ningun atributo que deba ser unique
-
-
 CREATE TABLE AGENCIAS(
   id_Agencia NUMBER(4),
   nombre VARCHAR2(40) NOT NULL,
@@ -19,20 +12,20 @@ CREATE TABLE SATELITES(
   nombre VARCHAR2(40) NOT NULL,
   orbita VARCHAR2(40) NOT NULL,
   peso VARCHAR2(40) NOT NULL,
-  coste VARCHAR(150) NOT NULL,
+  coste NUMBER(6,2) NOT NULL,
   activo BOOLEAN DEFAULT TRUE,
   fecha_Lanzamiento VARCHAR2(40) NOT NULL,
+  id_Agencia NUMBER(4),
   autor_Examen VARCHAR(150) NOT NULL,
   CONSTRAINT PK_Agencias PRIMARY KEY (id_Satelite),
-  CONSTRAINT FK_Id_Agencia FOREIGN KEY (Id_Agencia) REFERENCES AGENCIAS,
+  CONSTRAINT FK_Id_Agencia FOREIGN KEY (id_Agencia) REFERENCES AGENCIAS,
 );
 
 
 CREATE TABLE DETALLE_SATELITE(
   id_Detalle NUMBER(4) NOT NULL,
-  velocidad_Maxima VARCHAR2(40) NOT NULL,
-  combustible NUMBER(13) NOT NULL,
-  vida_Util NUMBER(1) DEFAULT 0,
+  velocidad_Maxima NUMBER(6) NOT NULL,
+  vida_Util NUMBER(3) NOT NULL,
   temperatura_Maxima NUMBER(4) NOT NULL,
   id_Satelite NUMBER(4) NOT NULL,
   autor_Examen VARCHAR(150) NOT NULL,
