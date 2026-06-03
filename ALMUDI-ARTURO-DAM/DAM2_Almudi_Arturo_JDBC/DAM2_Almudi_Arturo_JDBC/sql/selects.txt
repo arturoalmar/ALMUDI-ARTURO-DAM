@@ -1,9 +1,0 @@
-SATELITE
-private static final String SQL_FIND_ALL =
-            "SELECT * " +
-                    "FROM SATELITES " +
-                    "ORDER BY id_Satelite";
-}
-==================================================
-
-AGENCIA
