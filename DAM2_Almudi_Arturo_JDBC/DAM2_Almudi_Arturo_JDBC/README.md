@@ -1,1 +1,0 @@
-Arturo Almudi Marco 1º Anyo de aplicaciones multiplataforma
