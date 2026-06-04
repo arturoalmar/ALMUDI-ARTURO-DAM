@@ -8,9 +8,12 @@ package examen.almudi.arturo.beans;
 public class Incidente {
 
     private long id;
-    private String nombre;
-    private String pais;
-    private String nivelSeguridad;
+    private String codigo_incidente;
+    private String tipo_incidente;
+    private String fecha_deteccion;
+    private String estado;
+    private Soc soc;
+    private InformeIncidente informe;
     private String autorExamen;
 
     public long getId() {
@@ -21,28 +24,52 @@ public class Incidente {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getCodigo_incidente() {
+        return codigo_incidente;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCodigo_incidente(String codigo_incidente) {
+        this.codigo_incidente = codigo_incidente;
     }
 
-    public String getPais() {
-        return pais;
+    public String getTipo_incidente() {
+        return tipo_incidente;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setTipo_incidente(String tipo_incidente) {
+        this.tipo_incidente = tipo_incidente;
     }
 
-    public String getNivelSeguridad() {
-        return nivelSeguridad;
+    public String getFecha_deteccion() {
+        return fecha_deteccion;
     }
 
-    public void setNivelSeguridad(String nivelSeguridad) {
-        this.nivelSeguridad = nivelSeguridad;
+    public void setFecha_deteccion(String fecha_deteccion) {
+        this.fecha_deteccion = fecha_deteccion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Soc getSoc() {
+        return soc;
+    }
+
+    public void setSoc(Soc soc) {
+        this.soc = soc;
+    }
+
+    public InformeIncidente getInforme() {
+        return informe;
+    }
+
+    public static void setInforme(InformeIncidente informe) {
+        this.informe = informe;
     }
 
     public String getAutorExamen() {
@@ -55,12 +82,16 @@ public class Incidente {
 
     @Override
     public String toString() {
-        return "CentroForense{" +
+        return "Incidente{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", pais='" + pais + '\'' +
-                ", nivelSeguridad='" + nivelSeguridad + '\'' +
+                ", codigo_incidente='" + codigo_incidente + '\'' +
+                ", tipo_incidente='" + tipo_incidente + '\'' +
+                ", fecha_deteccion='" + fecha_deteccion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", soc=" + soc +
+                ", informe=" + informe +
                 ", autorExamen='" + autorExamen + '\'' +
                 '}';
     }
+
 }
