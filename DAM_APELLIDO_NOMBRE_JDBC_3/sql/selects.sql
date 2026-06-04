@@ -3,7 +3,7 @@
 -- =========================================
 
 -- =============================================
--- CONSULTAS DAO — MuestraForenseDAOImpl
+-- CONSULTAS DAO — IncidenteDAOImpl
 -- =============================================
 
 -- SQL_FIND_ALL: todas las incidencias con su socs (INNER JOIN)
@@ -22,7 +22,7 @@ FROM incidentes
 INNER JOIN socs ON incidentes.fk_soc_id
 WHERE incidentes.id = 1;
 
--- SQL_FIND_BY_CENTRO: incidencias filtradas por socs (INNER JOIN)
+-- SQL_FIND_BY_soc: incidencias filtradas por socs (INNER JOIN)
 SELECT incidentes.id, incidentes.codigo_incidente, incidentes.tipo_incidente, incidentes.fecha_deteccion,
               incidentes.estado, incidentes.autor_examen,
               socs.id, socs.nombre, socs.pais, socs.nivel_seguridad, socs.autor_examen
@@ -55,7 +55,7 @@ DELETE FROM incidentes WHERE id = 1;
 
 
 -- =============================================
--- CONSULTAS DAO — CentroForenseDAOImpl
+-- CONSULTAS dao — SocDAOImpl
 -- =============================================
 
 -- SQL_FIND_ALL
@@ -78,7 +78,7 @@ DELETE FROM socs WHERE id = 1;
 
 
 -- =============================================
--- CONSULTAS DAO — InformeForenseDAOImpl
+-- CONSULTAS DAO — InformeIncidenciadaoImpl
 -- =============================================
 
 -- SQL_FIND_ALL
@@ -101,7 +101,7 @@ DELETE FROM informes_incidentes WHERE id = 1;
 
 
 -- =============================================
--- BLOQUE 6 — BONUS_QUERY_ADVANCED: MUESTRAS_PELIGROSAS
+-- BLOQUE 6 — BONUS_QUERY_ADVANCED: INCIDENCIAS_PELIGROSAS
 -- =============================================
 -- Devuelve incidencias con malware detectado, nivel de seguridad > 90 y socs en España
 SELECT incidentes.id, incidentes.codigo_incidente, incidentes.tipo_incidente, incidentes.fecha_deteccion,
