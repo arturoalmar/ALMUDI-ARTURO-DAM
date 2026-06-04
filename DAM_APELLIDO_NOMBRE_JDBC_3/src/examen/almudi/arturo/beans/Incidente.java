@@ -68,7 +68,7 @@ public class Incidente {
         return informe;
     }
 
-    public static void setInforme(InformeIncidente informe) {
+    public void setInforme(InformeIncidente informe) {
         this.informe = informe;
     }
 

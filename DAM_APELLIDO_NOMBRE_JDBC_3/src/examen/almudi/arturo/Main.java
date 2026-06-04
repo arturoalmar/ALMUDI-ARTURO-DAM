@@ -23,10 +23,10 @@ public class Main {
 
         incidenteDAO.check();
 
-        // cogemos el primer centro que exista en la bd
+        // cogemos el primero
         SocDAOImpl socDAO = new SocDAOImpl(
                 MotorFactory.create(MotorFactory.POSTGRE));
-        Soc centro = socDAO.findAll().get(0);
+        Soc testsoc = socDAO.findAll().get(0);
 
         // TEST 1: ADD
         Incidente test = new Incidente();
@@ -34,7 +34,7 @@ public class Main {
         test.setTipo_incidente("APAGON");
         test.setFecha_deteccion("02/06/2026");
         test.setEstado("EN_PROCESO");
-        test.setSoc(centro);
+        test.setSoc(testsoc);
         test.setAutorExamen("Arturo_Almudi_DAM2");
         incidenteDAO.add(test);
 

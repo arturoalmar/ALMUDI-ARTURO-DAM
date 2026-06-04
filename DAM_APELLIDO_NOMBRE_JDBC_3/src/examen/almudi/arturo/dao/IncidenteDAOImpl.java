@@ -154,7 +154,7 @@ public class IncidenteDAOImpl extends AbstractDAO<Incidente> {
     }
 
     private Incidente mapRowWithInforme(ResultSet rs) throws Exception {
-        Incidente muestra = mapRowBase(rs);
+        Incidente incidente = mapRowBase(rs);
 
         InformeIncidente informe = new InformeIncidente();
         informe.setId(rs.getLong("informe_id"));
@@ -164,7 +164,7 @@ public class IncidenteDAOImpl extends AbstractDAO<Incidente> {
         informe.setAutorExamen(rs.getString("informe_autor"));
 
         Incidente.setInforme(informe);
-        return muestra;
+        return incidente;
     }
 
     @Override
