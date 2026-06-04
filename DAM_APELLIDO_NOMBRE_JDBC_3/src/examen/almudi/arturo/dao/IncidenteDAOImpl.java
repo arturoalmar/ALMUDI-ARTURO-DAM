@@ -53,7 +53,7 @@ public class IncidenteDAOImpl extends AbstractDAO<Incidente> {
                     "WHERE incidentes.id = ?";
 
     // BONUS_QUERY_ADVANCED: INCIDENCIAS_PELIGROSAS
-    private static final String SQL_MUESTRAS_PELIGROSAS =
+    private static final String SQL_Incidencias_PELIGROSAS =
             "SELECT incidentes.id, incidentes.codigo_incidente, incidentes.tipo_incidente, incidentes.fecha_deteccion, " +
                     "incidentes.estado, incidentes.autor_examen, " +
                     "socs.id, socs.nombre, socs.pais, socs.nivel_seguridad, socs.autor_examen " +
@@ -117,12 +117,11 @@ public class IncidenteDAOImpl extends AbstractDAO<Incidente> {
         return muestra;
     }
 
-    // BONUS: muestras con ADN positivo, riesgo > 90 y pais España
-    public ArrayList<Incidente> findMuestrasPeligrosas() {
+    public ArrayList<Incidente> findIncidenciasPeligrosas() {
         ArrayList<Incidente> lst = new ArrayList<>();
         try {
             motorSQL.connect();
-            motorSQL.prepare(SQL_MUESTRAS_PELIGROSAS);
+            motorSQL.prepare(SQL_Incidencias_PELIGROSAS);
             ResultSet rs = motorSQL.executeQuery();
             while (rs.next()) {
                 lst.add(mapRowWithInforme(rs));
